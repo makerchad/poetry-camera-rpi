@@ -163,7 +163,7 @@ sudo raspi-config
 1. Update the system and install requirements. I'm not sure you even need all of these; I can go over these again later and trim out the unnecessary ones.
 ```shell
 $ sudo apt-get update
-$ sudo apt-get install git cups build-essential libcups2-dev libcupsimage2-dev python3-serial python-pil python-unidecode
+$ sudo apt-get install git cups build-essential libcups2-dev libcupsimage2-dev python3-serial python3-pil python3-unidecode
 ```
 
 2. Install some software required to make the Adafruit Thermal Printer work.
