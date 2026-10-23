@@ -13,7 +13,6 @@ These instructions are still in progress. Try it out and let us know what's conf
 Raspberry Pis are simplified computers. They are lightweight, cheap, have limited processing power, and are more fragile than typical consumer electronic devices. It's very sensitive to the specific power sources you use — too much power and you'll fry the part, too little power and the software won't run. You also have to manually shut down the software before unplugging the power, to protect the software from being corrupted.
 
 We chose the Pi Zero 2 for its balance of processing power (Pi Zeros are too slow) and compact size (most other Pis on the market are larger). The wire diagrams in this tutorial will apply to all Raspberry Pis, but there may be differences in software and camera compatibility, especially with older devices. We've tested this with a [Pi 3b+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) and it works fine, but a [Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) probably requires too much power to make it a viable portable solution.
-    This has not been tested with the raspbery pi 5.
 
 Raspberry Pi Zero 2 is often sold without headers (those 2x20 black metal connectors). The headers let you easily connect the Pi to the printer and buttons with plug-in jumper wires. If you buy the Pi without headers, you'll need to separately buy a [2x20 header](https://www.adafruit.com/product/2822) and solder them on yourself. It's not hard, but leaves more room for error. (Of course, if you know what you're doing, you can directly solder the appropriate wires to the appropriate pins without headers.)
 
@@ -37,12 +36,10 @@ Raspberry Pis are also recovering from a supply shortage. Check [rpilocator.com]
     
 ### 3. Camera: [Raspberry Pi Camera Module 3](https://www.raspberrypi.com/products/camera-module-3/)
   <img src="https://github.com/carolynz/poetry-camera-rpi/assets/1395087/4fad7574-2933-448f-a556-d0d7990596ec" width="200">
-    This also works with the DORHEA Raspberry Pi Camera Module https://www.amazon.com/dp/B07DNSKMZ1?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1&th=1
 
   Mostly straightforward, but be careful of damaging the hardware. The Raspberry Pi camera is delicate and can be easily fried via static. We broke 3 cameras in the process of making this project. Just make sure to always store it in a static-shielding bag when you're not using it.
 
   If you are connecting the camera to a Pi Zero 2, note that the Zero 2's camera connection collar is also very delicate. We broke a Pi Zero 2 camera collar in the process of making this as well and had to just get a new Pi 🥲
-    
 
   We have not tested these instructions with older models of Raspberry Pi cameras.
 
@@ -68,7 +65,6 @@ The [Nano Thermal Printer](https://www.adafruit.com/product/2752) or [Thermal Pr
     - Wire cutters, wire stripper, tiny screwdriver for wiring together
     - Receipt paper: [EcoChit thermal receipt paper, 2.25"](https://www.amazon.com/EcoChit-Thermal-Paper-Rolls-Plants/dp/B076MMDL8Y) (phenol-free, recyclable)
         - Don't use regular receipt paper! [It's often filled with BPA](https://environmentaldefence.ca/2019/02/07/toxic-receipt-bpa-thermal-paper/), which is especially toxic for kids and reproductive health.
-        Amazon sells BPA Free paper https://www.amazon.com/dp/B0BWQBWSR7?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_2&th=1
 
 
 ### 5. Batteries:
@@ -82,9 +78,6 @@ We've heard of people having success with 2x 18620 batteries. We have not tried 
     - The printer needs a 5-9V power source that can handle high current draw while printing. Typical 9V alkaline batteries do *not* work as they do not provide enough current. To keep things simple for assembly, we've separated out the power sources, but it makes things bulkier.
   - Battery for the Raspberry Pi:
     - The Pi needs consistent 5V of power in order to function, which standard phone battery packs do not provide, and the PiSugar battery we did find has also occasionally driven it to overheating.
-  - We have had luck using 3700mAh Lipo batteries and a charging circut. This gave us about 2 rolls of paper (about 2 hours of use) before needing recharged.
-      https://www.amazon.com/dp/B08HGSXYM1?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1&th=1
-      https://www.amazon.com/dp/B0BY8G31N8?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_3&th=1
 
 
 ### 6. Buttons
@@ -93,9 +86,6 @@ We've heard of people having success with 2x 18620 batteries. We have not tried 
 
   - 2 [push buttons in different colors](https://www.adafruit.com/search?q=16mm%20Panel%20Mount%20Momentary%20Pushbutton)
   - 2 [quick-connect wires](https://www.adafruit.com/product/1152) to easily connect these buttons to the Pi
-  
-  - I changed the buttons to use a press button style instaed of the selector knob.
-    https://www.adafruit.com/product/1332 (Code reflects this)
 
 
 
@@ -105,7 +95,6 @@ We've heard of people having success with 2x 18620 batteries. We have not tried 
 
 ## Software
 - OpenAI account & API key. Each poem costs a couple cents to generate.
-- I updated that you no longer need a perplexity key. Everything runs through OpenAI
 
 Currently, the `main.py` script running on the Pi:
 - Takes a photo when you click the shutter button
@@ -116,8 +105,6 @@ Currently, the `main.py` script running on the Pi:
 The `Adafruit_Thermal.py` script is [Adafruit's thermal printer Python library](https://github.com/adafruit/Python-Thermal-Printer).
 
 ## How to set up
-IMPORTANT: The current code ONLY runs on Rasbian bullseye. It has not been upgraded to run on any newer versions! 
-
 This was cobbled together from the following tutorials:
 - [Instant Camera using Raspberry Pi and Thermal Printer](https://learn.adafruit.com/instant-camera-using-raspberry-pi-and-thermal-printer)
 - [Networked Thermal Printer using Raspberry Pi and CUPS](https://learn.adafruit.com/networked-thermal-printer-using-cups-and-raspberry-pi)
@@ -180,7 +167,6 @@ $ python main.py
 ```
 
 ## TODO instructions for adding buttons
-- The button array (To choose your type of poem)is conected to pins 32,30,28,26,12
 
 ## TODO instructions for auto-start/shutoff
 - Set up a `cron` job to run your python script at startup. First, open your `crontab` file to your default editor:
@@ -201,6 +187,5 @@ sudo reboot
 ```
 
 - Try clicking your shutter and power buttons to make sure they're working upon reboot. If they're not working, check your `errors.txt` file.
-- Current code uses your shutter to power off. If you hold the shutter for over 10 seconds, the system will print "Shutting Down" and then will do so.
 
 Lots of errors in these instructions, I'm sure.

@@ -305,11 +305,22 @@ def print_footer():
   printer.println("   .     .     .     .     .   ")
   printer.println("_.` `._.` `._.` `._.` `._.` `._")
   printer.println('\n')
-  printer.println('This poem was written by AI.')
-  printer.println('This build by: @maker_chad')
-  printer.println('Original build by: @poetry.camera')
-  printer.println('\n\n\n\n\n\n\n\n\n\n')
+#  printer.println('Saguaro Man 2025')
+#  printer.println('This poem was written by AI.')
+#  printer.println('This build by: @maker_chad')
+#  printer.println('Original build by: @poetry.camera')
   printer.println('\n\n\n\n\n\n')
+  printer.println('      .-.                                ')
+  printer.println('      |.|                                ')
+  printer.println('    /)|`|(\      Saguaro Man 2025        ')
+  printer.println('   (.(| |)`)                             ')
+  printer.println('~~~~`\` ./,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+  printer.println('      |.|           ~~                   ')
+  printer.println('      |`|                            ~~  ')
+  printer.println('     ,| |.      (_)          ~~          ')
+  printer.println('      "."        \"\                     ')
+  printer.println('           ~~     ^~^                    ')
+#  printer.println('\n\n\n\n\n\n\n\n\n\n')
 #  printer.println('\n\n\n\n\n\n')
 
 ##############
@@ -389,12 +400,11 @@ def get_poem_format():
   if knob1.is_pressed:
     poem_format = 'limerick. DO NOT EXCEED 5 LINES.'
   elif knob2.is_pressed:
-    poem_format = '8 line free verse. Do not rhyme. DO NOT EXCEED 4 LINES.'
-##    poem_format = 'haiku. You must match the 5 syllable, 7 syllable, 5 syllable format. It must not rhyme'
+    poem_format = 'haiku. You must match the 5 syllable, 7 syllable, 5 syllable format. It must not rhyme'
   elif knob3.is_pressed:
-    poem_format = 'limerick in Spanish. DO NOT EXCEED 5 LINES.'
+    poem_format = '8 line free verse. Do not rhyme. DO NOT EXCEED 4 LINES.'
   elif knob4.is_pressed:
-    poem_format = '8 line free verse poem in Spanish. Do not exceed 8 lines.'
+    poem_format = '8 line rhyming poem. Do not exceed 8 lines.'
   elif knob5.is_pressed:
     poem_format = 'poem where each word begins with the same letter. It must be four lines or less.'
   elif knob6.is_pressed:
@@ -476,12 +486,12 @@ def periodic_internet_check(interval):
       if e.returncode == 2:
         # if we were previously connected but lost internet, print error message
         if internet_connected:
-##          print(f"{time_string}: Internet connection lost. Please check your network settings.")
-##          printer.println("\n")
-##          printer.println(time_string + ": oh no, i lost internet!")
-##          printer.println('please connect to PoetryCameraSetup wifi network (pw: "password") on your phone to fix me!')
-##          printer.println(e)
-##          printer.println('\n\n\n\n')
+          print(f"{time_string}: Internet connection lost. Please check your network settings.")
+          printer.println("\n")
+          printer.println(time_string + ": oh no, i lost internet!")
+          printer.println('please connect to PoetryCameraSetup wifi network (pw: "password") on your phone to fix me!')
+          printer.println(e)
+          printer.println('\n\n\n\n')
           internet_connected = False
         else:
           # i.e. if we encounter return code 1
